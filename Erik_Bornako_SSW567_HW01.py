@@ -44,9 +44,6 @@ def classify_triangle(a,b,c):
     if (a != b and a != c and b != c):
         return 'Scalene' + right
     
-    else:
-        return 'NotATriangle'
-    
 def runClassifyTriangle(a, b, c):
     """ invoke classify_triangle with the specified arguments and print the result """
     print('classify_triangle(',a, ',', b, ',', c, ')=',classify_triangle(a,b,c),sep="")
