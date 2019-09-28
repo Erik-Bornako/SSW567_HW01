@@ -28,6 +28,9 @@ def classify_triangle(a,b,c):
     if a <= 0 or b <= 0 or c <= 0:
         return 'NotATriangle'
 
+    if (a >= (b + c)) or (b >= (a + c)) or (c >= (a + b)):
+        return 'NotATriangle'
+
     if isclose((a**2 + b**2), c**2) or isclose((a**2 + c**2), b**2) or isclose((b**2 + c**2), a**2):
         right = ' and Right'
     else:
@@ -60,7 +63,7 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classify_triangle(3.0,3,3.000), 'Equilateral')
         self.assertEqual(classify_triangle(3,4,5), 'Scalene and Right')
         self.assertEqual(classify_triangle(3,3,math.sqrt(18)), 'Isosceles and Right')
-        self.assertEqual(classify_triangle(3,3,20), 'Isosceles')
+        self.assertEqual(classify_triangle(3,3,20), 'NotATriangle')
         self.assertEqual(classify_triangle(3,3,'hello'), 'NotATriangle')
 
 if __name__ == '__main__':
